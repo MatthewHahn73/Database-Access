@@ -26,7 +26,7 @@ import mysql.connector
 #Connecting to a local database
 DB = mysql.connector.connect(host="localhost",
                                user="root",
-                               passwd="pass",
+                               passwd="",
                                database="database1")
 
 #Creating Database object
