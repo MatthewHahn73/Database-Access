@@ -1,0 +1,22 @@
+#***************************************************************
+#The execute function is a key method in this object.
+#Some examples of SQL methods that can be called are:
+#"Create Database <DatabaseName>" -Creates new database
+#"Show Databases"                 -Adds strings to MC object of databases in the system
+#"Create Table <Name of Table(Value1 Type)>" -Creates a table based on a DDL command
+#"Alter Table <Name of Table, Changes to table>" -Adds or deletes data related to table size
+#"Show Tables"                    -Adds strings to MC object of tables
+
+#Others can be used to manipulate the data in a table as well such as:
+#"Insert Into" - Inserts rows into table
+#"Delete From" - Deletes specific rows of table
+#"Select" - Retrieves data from tables given data
+#***************************************************************
+
+#***************************************************************
+#4 Different types of join
+#Inner Join - Shows all records that are common in both tables based on given clause
+#Left Join - Shows all records from the left linked table, even if no right table records exist
+#Right Join - Shows all records from the right linked table, even if no left table records exist
+#Full Join - Shows all records from both tables, regardless of existing data
+#***************************************************************
