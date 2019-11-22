@@ -33,9 +33,9 @@ DB = mysql.connector.connect(host="localhost",
 MC = DB.cursor(buffered = True) 
 
 #Creating a new table
-#MC.execute("create table customers (name VARCHAR(255), address VARCHAR(255))")
-#MC.execute("create table users (id INT, name VARCHAR(255), fav INT)")
-#MC.execute("create table products (id INT, name VARCHAR(255))")
+MC.execute("create table customers (name VARCHAR(255), address VARCHAR(255))")
+MC.execute("create table users (id INT, name VARCHAR(255), fav INT)")
+MC.execute("create table products (id INT, name VARCHAR(255))")
 
 #Using executemany() method to insert data into given table
 SQLCode = "insert into customers (name, address) Values (%s, %s)"
