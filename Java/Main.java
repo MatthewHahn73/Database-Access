@@ -10,7 +10,7 @@ public class Main {
 	}
 	public static void main(String ars[]) {
 		//Creating a connection with the database server
-		JD = new JavaDatabase("jdbc:mysql://localhost:3306/database1?allowPublicKeyRetrieval=false&useSSL=false","root","pass"); 
+		JD = new JavaDatabase("jdbc:mysql://localhost:3306/database1?allowPublicKeyRetrieval=true&useSSL=false","root","pass"); 
 		//Creating new tables
 		JD.DDL_DML("create table employees (ID INT NOT NULL, name VARCHAR(255), address VARCHAR(255), Primary Key(ID))");
 		JD.DDL_DML("create table managers (ID INT NOT NULL, name VARCHAR(255), address VARCHAR(255), Primary Key(ID))");
@@ -21,6 +21,10 @@ public class Main {
 		PrintResults(JD.DQL("select * from employees"));
 		//Join the two tables to find managers with the same ID as employees
 		PrintResults(JD.DQL("select managers.name, managers.address from managers inner join employees on employees.ID = managers.ID"));
+		//Read-in queries from a file
+		String[] Queries = JD.fileReadIn("Text_Files/Queries.txt");
+		for(String e : Queries)
+			System.out.println(e);
 		//Dropping all existing tables
 		JD.DDL_DML("drop table employees");
 		JD.DDL_DML("drop table managers");

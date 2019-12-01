@@ -1,8 +1,10 @@
 import java.sql.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class JavaDatabase {
 	private static Connection Conn;
+	public static String EMPTY_STRING = "";
 	JavaDatabase(String URL, String User, String Pass) {
 		try  {
 			Conn = DriverManager.getConnection(URL,User,Pass);
@@ -11,10 +13,20 @@ public class JavaDatabase {
     		throw new IllegalStateException("Cannot connect the database!", e);
 		}
 	}
-	public void closeConnection() {
+	public String[] fileReadIn(String fileName) {
 		try {
-			Conn.close();
-		} catch(Exception e) { /*Ignored*/ }
+			File file = new File(fileName); 
+			BufferedReader br = new BufferedReader(new FileReader(file)); 
+			String st; StringBuilder sb = new StringBuilder();
+  			while ((st = br.readLine()) != null) {
+				sb.append(st);
+			} br.close();
+			return sb.toString().split("(?<=;)");
+		} catch(FileNotFoundException e) {
+			System.out.print(e);
+		} catch(IOException e) {
+			System.out.print(e);
+		} return null;
 	}
 	public boolean DDL_DML(String D) {
 		try {
@@ -39,5 +51,11 @@ public class JavaDatabase {
 		} catch(SQLException e) {
 			e.printStackTrace();
 			return null;
+		}}
+	public void closeConnection() {
+		try {
+			Conn.close();
+		} catch(Exception e) {
+			 /*Ignored*/ 
 		}}
 	}

@@ -1,9 +1,10 @@
 import mysql.connector
+import os
 
 #Connecting to a local database
 DB = mysql.connector.connect(host="localhost",
                                user="root",
-                               passwd="",
+                               passwd="pass",
                                database="database1")
 
 #Creating Database object
@@ -57,6 +58,14 @@ SQLCommand = "select users.name as user, \
 MC.execute(SQLCommand)
 Result = MC.fetchall() 
 for x in Result:
+    print(x)
+
+#Reading in queries from a file
+f = open('Text_Files/Queries.sql', 'r')
+sf = f.read()
+f.close()
+Queries = sf.split(';')
+for x in Queries:
     print(x)
 
 #Dropping all tables
