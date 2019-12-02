@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.io.*;
+import java.util.Arrays;
 import java.util.ArrayList;
 
 public class JavaDatabase {
@@ -13,7 +14,7 @@ public class JavaDatabase {
     		throw new IllegalStateException("Cannot connect the database!", e);
 		}
 	}
-	public String[] fileReadIn(String fileName) {
+	public ArrayList<String> fileReadIn(String fileName) {
 		try {
 			File file = new File(fileName); 
 			BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -21,7 +22,7 @@ public class JavaDatabase {
   			while ((st = br.readLine()) != null) {
 				sb.append(st);
 			} br.close();
-			return sb.toString().split("(?<=;)");
+			return new ArrayList<String>(Arrays.asList(sb.toString().split("(?<=;)")));
 		} catch(FileNotFoundException e) {
 			System.out.print(e);
 		} catch(IOException e) {

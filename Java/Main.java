@@ -22,7 +22,7 @@ public class Main {
 		//Join the two tables to find managers with the same ID as employees
 		PrintResults(JD.DQL("select managers.name, managers.address from managers inner join employees on employees.ID = managers.ID"));
 		//Read-in queries from a file
-		String[] Queries = JD.fileReadIn("Text_Files/Queries.txt");
+		ArrayList<String> Queries = JD.fileReadIn("Text_Files/Queries.sql");
 		for(String e : Queries)
 			System.out.println(e);
 		//Dropping all existing tables
