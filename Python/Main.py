@@ -1,6 +1,3 @@
-#TODO: Re-write this to be a main script
-#TODO: Write up a module with built-in functions to take care of DDL and DQL statements
-
 from pyDB import pyDB
 
 if __name__ == "__main__":
