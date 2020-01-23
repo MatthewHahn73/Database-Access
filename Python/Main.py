@@ -3,8 +3,8 @@ from pyDB import pyDB
 if __name__ == "__main__":
     #Connecting to a local database
     DB = pyDB(host="localhost",
-                user="root",
-                passwd="pass",
+                user="",
+                passwd="",
                 database="database1")
 
     #Creating some new tables
